@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Range滑动条使用</title>
+    <style>
+        li {
+            height: 40px;
+            color: rgb(0, 0, 0);
+            border-style: groove;
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body>
+    数字滑动条：<input type="range" id="ran" min="0" max="100000000" step="1" value="0" onchange="show()" /> <br> 数值显示：
+    <input type="text" id="num" /> <br>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <script type="text/javascript">
+        var all_li = document.querySelectorAll("li");
+        var color_array = ["red", "blue", "verdigris", "green", "black", "brown"];
+
+        function show() {
+            ran = document.getElementById("ran");
+            num = document.getElementById("num");
+            num.value = ran.value;
+
+            for (let i = 0; i < 20; i++) {
+                all_li[i].innerHTML = Number(ran.value) + i;
+                all_li[i].style.color = color_array[(Number(ran.value) + i) % 6];
+            }
+        }
+    </script>
+
+</body>
+
+</html>
